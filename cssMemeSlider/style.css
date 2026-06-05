@@ -1,0 +1,174 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #f5f5f5;
+  background: #161616;
+}
+
+.slider-radio {
+  width: 0;
+  height: 0;
+  margin: 0;
+  opacity: 0;  
+}
+
+.page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.slider {
+  width: min(92vw, 54rem);
+}
+
+.image-window,
+.caption-window {
+  overflow: hidden;
+}
+
+.image-window {
+  border-radius: 1rem;
+  background: #050505;
+}
+
+.image-track,
+.caption-track {
+  display: flex;
+  transition: transform 0.6s ease;
+}
+
+.slide {
+  flex: 0 0 100%;
+  aspect-ratio: 16 / 9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  background: #050505;
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+}
+
+.slider-footer {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.caption-track p {
+  flex: 0 0 100%;
+  margin: 0;
+  font-size: 1.15rem;
+  line-height: 1.5;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.controls label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.45rem;
+  cursor: pointer;
+}
+
+.controls span {
+  width: 0.85rem;
+  height: 0.85rem;
+  display: block;
+  border: 0.16rem solid #58a6ff;
+  border-radius: 50%;
+  background: transparent;
+  transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+}
+
+.controls label:hover span {
+  border-color: #ffffff;
+  transform: scale(1.25);
+}
+
+.controls label:active span {
+  transform: scale(0.9);
+}
+
+#slide-1:checked ~ .page .image-track,
+#slide-1:checked ~ .page .caption-track {
+  transform: translateX(0);
+}
+
+#slide-2:checked ~ .page .image-track,
+#slide-2:checked ~ .page .caption-track {
+  transform: translateX(-100%);
+}
+
+#slide-3:checked ~ .page .image-track,
+#slide-3:checked ~ .page .caption-track {
+  transform: translateX(-200%);
+}
+
+#slide-4:checked ~ .page .image-track,
+#slide-4:checked ~ .page .caption-track {
+  transform: translateX(-300%);
+}
+
+#slide-1:checked ~ .page .controls label[for="slide-1"] span,
+#slide-2:checked ~ .page .controls label[for="slide-2"] span,
+#slide-3:checked ~ .page .controls label[for="slide-3"] span,
+#slide-4:checked ~ .page .controls label[for="slide-4"] span {
+  background: #58a6ff;
+}
+
+#slide-1:checked ~ .page .controls label[for="slide-1"]:hover span,
+#slide-2:checked ~ .page .controls label[for="slide-2"]:hover span,
+#slide-3:checked ~ .page .controls label[for="slide-3"]:hover span,
+#slide-4:checked ~ .page .controls label[for="slide-4"]:hover span {
+  background: transparent;
+}
+
+@media (max-width: 500px) {
+  .page {
+    padding: 1rem;
+  }
+
+  .slider {
+    width: 100%;
+  }
+
+  .slider-footer {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .controls {
+    justify-content: center;
+    order: 1;
+  }
+
+  .caption-window {
+    order: 2;
+  }
+
+  .caption-track p {
+    text-align: center;
+    font-size: 1rem;
+  }
+}
