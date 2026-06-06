@@ -7,8 +7,62 @@
   <link rel="stylesheet" href="./style.css">
 </head>
 <body>
+  <input class="slider-radio" type="radio" name="slider" id="slide-1" checked>
+  <input class="slider-radio" type="radio" name="slider" id="slide-2">
+  <input class="slider-radio" type="radio" name="slider" id="slide-3">
+  <input class="slider-radio" type="radio" name="slider" id="slide-4">
+
   <main class="page">
-    <h1>CSS Meme Slider</h1>
+    <section class="slider" aria-label="QA memes slider">
+      <div class="image-window">
+        <div class="image-track">
+          <figure class="slide">
+            <img src="./assets/meme-1.jpg" alt="Developers and testers finding bugs">
+          </figure>
+
+          <figure class="slide">
+            <img src="./assets/meme-2.jpg" alt="QA tester checking a release">
+          </figure>
+
+          <figure class="slide">
+            <img src="./assets/meme-3.jpg" alt="QA testing bug-free software">
+          </figure>
+
+          <figure class="slide">
+            <img src="./assets/meme-4.jpg" alt="QA manager asking for test status">
+          </figure>
+        </div>
+      </div>
+
+      <div class="slider-footer">
+        <div class="caption-window">
+          <div class="caption-track">
+            <p>When developers find a bug vs when testers find a bug</p>
+            <p>QA when developers try to release without testing</p>
+            <p>When the developer says the software is bug-free</p>
+            <p>When QA manager asks for test status</p>
+          </div>
+        </div>
+
+        <div class="controls" aria-label="Slider controls">
+          <label for="slide-1" aria-label="Show first meme">
+            <span></span>
+          </label>
+
+          <label for="slide-2" aria-label="Show second meme">
+            <span></span>
+          </label>
+
+          <label for="slide-3" aria-label="Show third meme">
+            <span></span>
+          </label>
+
+          <label for="slide-4" aria-label="Show fourth meme">
+            <span></span>
+          </label>
+        </div>
+      </div>
+    </section>
   </main>
 </body>
 </html>
